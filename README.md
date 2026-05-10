@@ -8,7 +8,7 @@ This repository contains two main data pipelines designed to demonstrate end-to-
 2.  **Multi-City Weather Logger**: A persistent background service tracking atmospheric conditions in **Hamburg and London** to analyze regional climate trends.
 
 ## 🛠️ The Tech Stack
-* **Language:** Python 3.x
+* **Language:** Python 3.14.4
 * **AI Engine:** Llama 3 (Running locally via Ollama)
 * **Data Handling:** Pandas, CSV Serialization
 * **Visualization:** Excel Pivot Tables & Power Query

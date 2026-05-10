@@ -6,8 +6,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 # Load variables from .env
-load_dotenv()
-
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 # --- CONFIGURATION ---
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 CITIES = ["London", "Hamburg"]  # Added Hamburg here

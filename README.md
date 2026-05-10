@@ -21,7 +21,7 @@ This repository contains two main data pipelines designed to demonstrate end-to-
 ## 📊 Sample Insights
 ### Political Sentiment Analysis
 By leveraging a local LLM, this project avoids cloud costs and maintains data privacy while classifying thousands of headlines.
-![Guardian Sentiment Chart](images/guardian_chart.png)
+![Guardian Sentiment Chart](images/guardian_sentiment_graph.png)
 
 ### Weather Tracking (Hamburg vs. London)
 Currently logging 24-hour cycles to compare temperature and humidity fluctuations between Northern Germany and the UK.

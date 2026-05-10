@@ -17,7 +17,6 @@ This repository contains two main data pipelines designed to demonstrate end-to-
 ## 📁 Project Structure
 * `scripts/`: Contains the core logic for data fetching and AI processing.
 * `images/`: Data visualizations and architecture snapshots.
-* `.env.example`: Template for required API keys (OpenWeather, NewsAPI, The Guardian).
 
 ## 📊 Sample Insights
 ### Political Sentiment Analysis

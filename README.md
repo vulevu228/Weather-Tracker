@@ -1,4 +1,4 @@
-# 🌦️ AI Weather Sentiment Tracker
+# 🌦️ Hourly Weather Data Tracker
 
 ![Weather Log Automation](https://github.com/vulevu228/AI-Wheather-Sentiment/actions/workflows/weather_logger.yml/badge.svg)
 

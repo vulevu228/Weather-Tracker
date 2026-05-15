@@ -33,7 +33,8 @@ jobs:
         env:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           PYTHONUNBUFFERED: "1"
-        run: python3 -u weather_logger.py 
+        # Using the full workspace variable is the safest way in 2026
+        run: python -u "${{ github.workspace }}/scripts/weather_logger.py"
 
       - name: Commit and Push Data
         run: |

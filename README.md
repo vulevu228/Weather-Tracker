@@ -19,12 +19,24 @@ This repository contains two primary data engineering pipelines:
 
 ### Temperature & Humidity Trends
 Comparing the atmospheric stability of major European and Middle Eastern hubs.
-![Average Temp Comparison](images/average_temp_comparison.png)
-![Humidity Comparison](images/humidity_comparison.png)
+
+<p align="center">
+  <img src="images/average_temp_comparison.png" width="45%" />
+  <img src="images/humidity_comparison.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="images/temperature_comparison.png" width="90%" />
+  <br>
+  <em>Figure 1: Side-by-side comparison of regional temperature and humidity metrics.</em>
+</p>
 
 ### UV Radiation Analysis
 Real-time monitoring of UV Index levels across different latitudes.
-![Average UV Index](images/average_uv_index.png)
+
+<p align="center">
+  <img src="images/average_uv_index.png" width="60%" />
+</p>
 
 ## 📁 Project Structure
 * `scripts/`: Python logic for the Sentiment Engine and Environment Loggers.

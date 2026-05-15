@@ -3,10 +3,9 @@ import pandas as pd
 import os
 import sys
 from datetime import datetime
-from dotenv import load_dotenv
 
 # Try to load .env for local work, but don't fail if it's missing
-load_dotenv()
+
 
 # --- CONFIGURATION ---
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

@@ -30,8 +30,8 @@ jobs:
         env:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           PYTHONUNBUFFERED: "1"
-        # Using the -u flag ensures we see the logs the moment they happen
-        run: python -u scripts/weather_logger.py
+        run: |
+          python3 -u scripts/weather_logger.py 2>&1
 
       - name: Commit and Push Data
         run: |

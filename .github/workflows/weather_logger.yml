@@ -1,0 +1,37 @@
+name: Hourly Weather Automation
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:      # Adds a "Run" button on GitHub for manual testing
+
+jobs:
+  logging_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: pip install pandas requests python-dotenv
+
+      - name: Execute Script
+        env:
+          # This line tells the robot: "Take the secret key I saved in GitHub 
+          # settings and pretend it's a local environment variable."
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }} 
+        run: python scripts/weather_logger.py
+
+      - name: Commit and Push Data
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add hamburg_data.db
+          git commit -m "🤖 Automated Data Log: $(date)" || echo "No changes to commit"
+          git push

@@ -1,22 +1,35 @@
 import os
 import sys
 import requests
+from datetime import datetime
 
-# Use a custom log function that forces the console to refresh
+# Direct logging to bypass buffering
 def log(msg):
     print(msg, flush=True)
-    sys.stdout.flush()
 
-log("--- LOG START: HELLO FROM GITHUB ---")
+log("--- STARTING WEATHER LOGGER ---")
 
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
-log(f"Checking API Key: {'Found' if API_KEY else 'NOT FOUND'}")
+FILE_NAME = "overnight_weather.csv"
+
+if not API_KEY:
+    log("❌ ERROR: API Key not found in environment!")
+    sys.exit(1)
 
 try:
-    log("Testing network by calling Google...")
-    test_res = requests.get("https://www.google.com", timeout=5)
-    log(f"Network Status: {test_res.status_code}")
-except Exception as e:
-    log(f"Network Error: {e}")
+    log("📡 Calling OpenWeather API...")
+    # Using London as a test
+    url = f"https://api.openweathermap.org/data/2.5/weather?q=London&appid={API_KEY}&units=metric"
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+    log("✅ API Success!")
+    
+    # Save a simple line to the CSV
+    with open(FILE_NAME, "a") as f:
+        f.write(f"{datetime.now()},London,Success\n")
+    log(f"💾 Data saved to {FILE_NAME}")
 
-log("--- LOG END: SUCCESS ---")
+except Exception as e:
+    log(f"❌ ERROR: {e}")
+
+log("--- PROCESS COMPLETE ---")

@@ -23,8 +23,10 @@ jobs:
 
       - name: Execute Script
         env:
-          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }} 
-        run: python scripts/weather_logger.py
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -u scripts/weather_logger.py
 
       - name: Commit and Push Data
         run: |

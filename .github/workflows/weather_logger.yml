@@ -23,8 +23,6 @@ jobs:
 
       - name: Execute Script
         env:
-          # This line tells the robot: "Take the secret key I saved in GitHub 
-          # settings and pretend it's a local environment variable."
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }} 
         run: python scripts/weather_logger.py
 

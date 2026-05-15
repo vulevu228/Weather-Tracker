@@ -1,21 +1,22 @@
 import os
 import sys
+import requests
 
-# Force the log to show up immediately
-print("--- PYTHON SANITY TEST START ---", flush=True)
+# Use a custom log function that forces the console to refresh
+def log(msg):
+    print(msg, flush=True)
+    sys.stdout.flush()
+
+log("--- LOG START: HELLO FROM GITHUB ---")
+
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
+log(f"Checking API Key: {'Found' if API_KEY else 'NOT FOUND'}")
 
 try:
-    print(f"Current Working Directory: {os.getcwd()}", flush=True)
-    api_key = os.getenv("OPENWEATHER_API_KEY")
-    print(f"API Key found: {bool(api_key)}", flush=True)
-    
-    # Try to write a test line to the CSV
-    with open("overnight_weather.csv", "a") as f:
-        f.write("test_run,success\n")
-    print("Successfully wrote to CSV file.", flush=True)
-
+    log("Testing network by calling Google...")
+    test_res = requests.get("https://www.google.com", timeout=5)
+    log(f"Network Status: {test_res.status_code}")
 except Exception as e:
-    print(f"An error occurred: {e}", flush=True)
+    log(f"Network Error: {e}")
 
-print("--- PYTHON SANITY TEST COMPLETE ---", flush=True)
-sys.exit(0)
+log("--- LOG END: SUCCESS ---")

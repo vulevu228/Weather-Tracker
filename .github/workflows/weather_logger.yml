@@ -32,6 +32,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git add hamburg_data.db
-          git commit -m "🤖 Automated Data Log: $(date)" || echo "No changes to commit"
+          git add overnight_weather.csv
+          git commit -m "🤖 Weather Log Update: $(date)" || echo "No changes to commit"
           git push

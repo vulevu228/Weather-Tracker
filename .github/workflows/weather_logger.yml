@@ -2,16 +2,19 @@ name: Hourly Weather Automation
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:      # Adds a "Run" button on GitHub for manual testing
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   logging_job:
     runs-on: ubuntu-latest
+    env:
+      # This clears that deprecation warning
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Note: check if v5 is out for your runner
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -19,19 +22,22 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install pandas requests python-dotenv
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests python-dotenv
 
       - name: Execute Script
         env:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
           PYTHONUNBUFFERED: "1"
-        run: |
-          python -u scripts/weather_logger.py
+        # Using the -u flag ensures we see the logs the moment they happen
+        run: python -u scripts/weather_logger.py
 
       - name: Commit and Push Data
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
+          git pull origin main --rebase
           git add overnight_weather.csv
-          git commit -m "🤖 Weather Log Update: $(date)" || echo "No changes to commit"
+          git commit -m "🤖 Automated Data Log: $(date)" || echo "No changes to commit"
           git push

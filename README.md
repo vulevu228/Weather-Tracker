@@ -1,50 +1,47 @@
-# AI-Driven Sentiment & Environmental Analytics 🚀
+# 🌦️ AI Weather Sentiment Tracker
 
-A multi-stream data pipeline that integrates real-time environmental logging with local AI-powered sentiment analysis of global news.
+![Weather Log Automation](https://github.com/vulevu228/AI-Wheather-Sentiment/actions/workflows/weather_logger.yml/badge.svg)
 
-## 🌟 Project Overview
-This repository contains two primary data engineering pipelines:
-1. **Political Sentiment Engine**: Scrapes news archives from The Guardian and real-time headlines via NewsAPI, processing them through a **local Llama 3 instance** via Ollama to categorize global sentiment.
-2. **Global Weather & UV Logger**: A persistent SQLite-backed service tracking atmospheric conditions across **Hamburg, London, Berlin, and Istanbul** to analyze regional climate trends and UV radiation levels.
+This repository hosts an automated data pipeline that tracks and logs weather conditions for **London** and **Hamburg**. It serves as the data foundation for future sentiment and environmental analysis.
 
-## 🛠️ The Tech Stack
-* **Language:** Python 3.14.4
-* **Database:** SQLite3 (Relational storage with ACID compliance)
-* **AI Engine:** Llama 3 (Inference via Ollama)
-* **Data Engineering:** Pandas, CSV Serialization
-* **Visualization:** Excel Pivot Tables & Power Query
-* **Environment:** Secure `.env` management for API credentials
+---
 
-## 📊 Environmental Insights
+## 🚀 How it Works
 
-### Temperature & Humidity Trends
-Comparing the atmospheric stability of major European and Middle Eastern hubs.
+* **Automation:** A GitHub Action workflow triggers every hour (via `cron`) or on-demand (via `workflow_dispatch`).
+* **Data Collection:** A Python script fetches real-time metrics from the **OpenWeather API**.
+* **Persistent Storage:** Data is automatically appended to `overnight_weather.csv` and committed back to the repository by the GitHub Action Bot.
+* **Environment:** The pipeline runs on an `ubuntu-latest` runner using **Python 3.12**.
 
-<p align="center">
-  <img src="images/average_temp_comparison.png" width="45%" />
-  <img src="images/humidity_comparison.png" width="45%" />
-</p>
+---
 
-<p align="center">
-  <img src="images/temperature_comparison.png" width="90%" />
-  <br>
-  <em>Figure 1: Side-by-side comparison of regional temperature and humidity metrics.</em>
-</p>
+## 📊 Data Structure
 
-### UV Radiation Analysis
-Real-time monitoring of UV Index levels across different latitudes.
+The dataset is stored in `overnight_weather.csv` with the following columns:
 
-<p align="center">
-  <img src="images/average_uv_index.png" width="60%" />
-</p>
+| Column | Description |
+| :--- | :--- |
+| **timestamp** | Date and time of data retrieval (UTC) |
+| **city** | The city being tracked (London or Hamburg) |
+| **temp_c** | Current temperature in Celsius |
+| **humidity_pct** | Humidity level as a percentage |
+| **pressure** | Atmospheric pressure (hPa) |
+| **wind_speed** | Wind speed in meters/second |
+| **description** | Short weather condition summary (e.g., "broken clouds") |
 
-## 📁 Project Structure
-* `scripts/`: Python logic for the Sentiment Engine and Environment Loggers.
-* `images/`: High-resolution data visualizations and insights.
-* `hamburg_data.db`: Local SQLite database (Note: listed in .gitignore for security).
+---
 
-## 🚀 How to Run
-1. **Clone the repo:** `git clone https://github.com/vulevu228/AI-Weather-Sentiment.git`
-2. **Install dependencies:** `pip install pandas requests python-dotenv`
-3. **Setup Keys:** Rename `.env.example` to `.env` and add your API keys.
-4. **Run the Logger:** `python scripts/environment_logger.py`
+## 🛠️ Tech Stack
+
+* **Language:** Python 3.12
+* **Libraries:** `requests`, `pandas`
+* **CI/CD:** GitHub Actions
+* **API:** OpenWeatherMap API
+
+---
+
+## 🛡️ Setup & Security
+
+1.  **Secrets:** The API key is stored securely in GitHub Actions Secrets as `OPENWEATHER_API_KEY`.
+2.  **Environment:** The project uses `PYTHONUNBUFFERED` logging to ensure live tracking of the execution within GitHub's runner logs.
+3.  **Safe CSV Handling:** The `.gitignore` is configured to ignore local temporary files while allowing the central data CSV to be updated by the automation.

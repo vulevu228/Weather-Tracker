@@ -2438,3 +2438,5 @@ timestamp,temp_c,humidity_pct,pressure_hpa,wind_speed,description,
 2026-05-19 18:23:19,Hamburg,16.8,53,1016,3.6,few clouds
 2026-05-19 22:47:07,London,13.42,78,1011,5.66,few clouds
 2026-05-19 22:47:07,Hamburg,14.51,67,1017,3.09,clear sky
+2026-05-20 10:37:33,London,17.76,56,1018,7.2,broken clouds
+2026-05-20 10:37:33,Hamburg,14.63,89,1018,6.17,light intensity shower rain

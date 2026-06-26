@@ -2844,3 +2844,5 @@ timestamp,temp_c,humidity_pct,pressure_hpa,wind_speed,description,
 2026-06-26 19:07:55,Hamburg,28.22,56,1016,2.7,broken clouds
 2026-06-26 20:57:15,London,27.28,58,1016,1.79,scattered clouds
 2026-06-26 20:57:16,Hamburg,25.46,66,1017,2.37,scattered clouds
+2026-06-26 22:38:15,London,24.87,65,1017,2.58,scattered clouds
+2026-06-26 22:38:15,Hamburg,23.75,79,1017,2.24,scattered clouds

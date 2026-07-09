@@ -3082,3 +3082,5 @@ timestamp,temp_c,humidity_pct,pressure_hpa,wind_speed,description,
 2026-07-09 19:01:09,Hamburg,17.69,81,1017,3.13,overcast clouds
 2026-07-09 20:57:35,London,27.87,52,1016,0.45,overcast clouds
 2026-07-09 20:57:35,Hamburg,16.59,85,1017,2.68,overcast clouds
+2026-07-09 22:44:47,London,25.7,58,1017,2.24,overcast clouds
+2026-07-09 22:44:47,Hamburg,16.1,91,1017,1.96,broken clouds

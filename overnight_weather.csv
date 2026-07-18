@@ -3278,3 +3278,5 @@ timestamp,temp_c,humidity_pct,pressure_hpa,wind_speed,description,
 2026-07-18 00:12:00,Hamburg,17.29,88,1011,4.02,scattered clouds
 2026-07-18 03:36:45,London,16.75,77,1018,0.89,clear sky
 2026-07-18 03:36:45,Hamburg,16.39,85,1011,2.68,few clouds
+2026-07-18 06:22:12,London,16.61,78,1018,0.89,scattered clouds
+2026-07-18 06:22:12,Hamburg,16.6,82,1010,4.47,scattered clouds

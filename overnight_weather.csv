@@ -3949,3 +3949,5 @@ timestamp,temp_c,humidity_pct,pressure_hpa,wind_speed,description,
 2026-08-13 12:01:43,Hamburg,26.9,15,1026,3.13,few clouds
 2026-08-13 13:51:45,London,36.45,24,1019,3.13,clear sky
 2026-08-13 13:51:45,Hamburg,29,28,1025,4.12,scattered clouds
+2026-08-13 15:17:29,London,36.71,22,1019,3.4,clear sky
+2026-08-13 15:17:30,Hamburg,28.83,28,1025,3.09,scattered clouds
